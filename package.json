@@ -1,0 +1,30 @@
+{
+  "name": "feem-xml",
+  "version": "0.0.1",
+  "description": "Validate, parse, and build XML files that follow the FEEM European Explosives Code Structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "author": "Red Kurti",
+  "license": "ISC",
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "20.11.5",
+    "gts": "^5.3.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.3.6"
+  }
+}

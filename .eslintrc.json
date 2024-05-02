@@ -1,0 +1,12 @@
+{
+  "extends": "./node_modules/gts/",
+  "overrides": [
+    {
+      "files": ["tests/**/*"],
+      "plugins": ["jest"],
+      "env": {
+        "jest/globals": true
+      }
+    }
+  ]
+}
