@@ -2,7 +2,8 @@
   "name": "feem-xml",
   "version": "0.0.1",
   "description": "Validate, parse, and build XML files that follow the FEEM European Explosives Code Structure",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "gts lint",
