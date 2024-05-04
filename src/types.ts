@@ -21,9 +21,16 @@ interface FeemShipment {
   ShipmentNumber?: string;
   ShipmentDate?: string;
   PurchaseOrderNumber?: string;
-  SummaryItems?: FeemSummaryItem[];
-  Items?: FeemItem[];
-  Units?: FeemUnit[];
+  SummaryItems?: {
+    SummaryItem?: FeemSummaryItem[] | FeemSummaryItem;
+  };
+  Units?: {
+    Unit: FeemUnit[];
+  };
+  Items?: {
+    Item: FeemItem[];
+  };
+  Item?: FeemItem;
 }
 
 interface FeemItemInfo {
@@ -59,14 +66,22 @@ interface FeemSummaryItem extends FeemItemInfo {
   };
 }
 
+interface FeemSummaryItemsMap {
+  [key: string]: FeemSummaryItem;
+}
+
 interface FeemUnit extends FeemItemInfo {
   attr: {
     UID: string;
     PSN: string;
     SID: string;
   };
-  Units?: FeemUnit[];
-  Items?: FeemItem[];
+  Units?: {
+    Unit: FeemUnit[];
+  };
+  Items?: {
+    Item: FeemItem[];
+  };
 }
 
 interface FeemItem extends FeemItemInfo {
@@ -90,4 +105,20 @@ interface FeemActor {
   State?: string;
 }
 
-export type {FeemFile, FeemShipment, FeemSummaryItem, FeemItem, FeemActor};
+interface FeemItemFlat {
+  uid: string;
+  psn: string;
+  parentLine?: string[];
+  sid: string;
+}
+
+export type {
+  FeemFile,
+  FeemShipment,
+  FeemActor,
+  FeemSummaryItem,
+  FeemSummaryItemsMap,
+  FeemItem,
+  FeemUnit,
+  FeemItemFlat,
+};

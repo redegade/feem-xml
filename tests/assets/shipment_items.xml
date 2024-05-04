@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Shipment xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileVersion="1.0" FileType="FEEM-Std" FileCreator="FileCreator" Hash="MD5HashValue">
+  <SummaryItems>
+    <SummaryItem SID="S1" PSN="EX123">
+    </SummaryItem>
+    <SummaryItem SID="S2" PSN="EX123">
+    </SummaryItem>
+  </SummaryItems>
+  <Units>
+    <Unit UID="PARENT_UNIT_1" PSN="EX123">
+      <Items>
+        <Item UID="UID_1" PSN="EX123" SID="S1" />
+        <Item UID="UID_2" PSN="EX123" SID="S1" />
+        <Item UID="UID_3" PSN="EX123" SID="S1" />
+        <Item UID="UID_4" PSN="EX123" SID="S1" />
+        <Item UID="UID_5" PSN="EX123" SID="S1" />
+        <Item UID="UID_6" PSN="EX123" SID="S1" />
+        <Item UID="UID_7" PSN="EX123" SID="S1" />
+        <Item UID="UID_8" PSN="EX123" SID="S1" />
+        <Item UID="UID_9" PSN="EX123" SID="S1" />
+        <Item UID="UID_10" PSN="EX123" SID="S1" />
+      </Items>
+    </Unit>
+    <Unit UID="PARENT_UNIT_2" PSN="EX123">
+      <Items>
+        <Item UID="UID_11" PSN="EX123" SID="S1" />
+        <Item UID="UID_12" PSN="EX123" SID="S1" />
+        <Item UID="UID_13" PSN="EX123" SID="S1" />
+        <Item UID="UID_14" PSN="EX123" SID="S1" />
+        <Item UID="UID_15" PSN="EX123" SID="S1" />
+        <Item UID="UID_16" PSN="EX123" SID="S1" />
+        <Item UID="UID_17" PSN="EX123" SID="S1" />
+        <Item UID="UID_18" PSN="EX123" SID="S1" />
+        <Item UID="UID_19" PSN="EX123" SID="S1" />
+        <Item UID="UID_20" PSN="EX123" SID="S1" />
+      </Items>
+    </Unit>
+  </Units>
+</Shipment>

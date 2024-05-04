@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Shipment xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" FileVersion="1.0" FileType="FEEM-Std" FileCreator="FileCreator" Hash="MD5HashValue">
+  <SummaryItems>
+    <SummaryItem SID="S1" PSN="EX123">
+    </SummaryItem>
+    <SummaryItem SID="S2" PSN="EX123">
+    </SummaryItem>
+  </SummaryItems>
+  <Units>
+    <Unit UID="PARENT_UNIT_1" PSN="EX123">
+      <Items>
+        <Item UID="UID_1" PSN="EX123" SID="S1" />
+      </Items>
+    </Unit>
+  </Units>
+</Shipment>
