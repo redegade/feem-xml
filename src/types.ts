@@ -1,81 +1,93 @@
+interface FeemFile {
+  Shipment: FeemShipment;
+}
+
 interface FeemShipment {
-  fileAttributes?: FeemFileAttributes;
-  messageId?: string;
-  messageTime?: string;
-  messageType?: string;
-  deliveryNoteNumber?: string;
-  expectedDeliveryDate?: string;
-  receiver?: FeemActor;
-  shipper?: FeemActor | FeemActor[];
-  sender?: FeemActor;
-  deliveryComment?: string;
-  shipmentNumber?: string;
-  shipmentDate?: string;
-  purchaseOrderNumber?: string;
-  summaryItems?: FeemSummaryItem[];
-  items?: FeemItem[];
-  units?: FeemItem[];
+  attr: {
+    FileCreator?: string;
+    FileType?: string;
+    FileVersion?: string;
+    Hash?: string;
+  };
+  MessageId?: string;
+  MessageTime?: string;
+  MessageType?: string;
+  DeliveryNoteNumber?: string;
+  ExpectedDeliveryDate?: string;
+  Receiver?: FeemActor;
+  Shipper?: FeemActor | FeemActor[];
+  Sender?: FeemActor;
+  DeliveryComment?: string;
+  ShipmentNumber?: string;
+  ShipmentDate?: string;
+  PurchaseOrderNumber?: string;
+  SummaryItems?: FeemSummaryItem[];
+  Items?: FeemItem[];
+  Units?: FeemUnit[];
 }
 
-interface FeemFileAttributes {
-  fileCreator?: string;
-  fileType?: string;
-  fileVersion?: string;
-  hash?: string;
-}
-
-interface FeemSummaryItem {
-  sid: string;
-  psn: string;
-  producerProductCode?: string;
-  customerProductCode?: string;
-  producerProductName?: string;
-  purchaseOrderLineNumber?: string;
-  deliveryNoteLineNumber?: string;
-  itemQuantity?: number;
-  countOfTradeUnits?: number;
-  packagingLevel?: string;
-  batchNumber?: string;
-  productionDate?: string;
-  netExplosiveWeight?: number;
-  length?: number;
-  width?: number;
-  depthThickness?: number;
-  area?: number;
-  netVolumeLitre?: number;
-  netVolumeCubic?: number;
-  grossWeight?: number;
-  itemComment?: string;
-  unitOfMeasure?: string;
+interface FeemItemInfo {
+  ProducerProductCode?: string;
+  CustomerProductCode?: string;
+  ProducerProductName?: string;
+  PurchaseOrderLineNumber?: string;
+  DeliveryNoteLineNumber?: string;
+  ItemQuantity?: number;
+  ItemComment?: string;
+  CountOfTradeUnits?: number;
+  PackagingLevel?: string;
+  BatchNumber?: string;
+  ProductionDate?: string;
+  NetExplosiveWeight?: number;
+  Length?: number;
+  Width?: number;
+  DepthThickness?: number;
+  Area?: number;
+  NetVolumeLitre?: number;
+  NetVolumeCubic?: number;
+  GrossWeight?: number;
+  UnitOfMeasure?: string;
   UNNumber?: string;
-  tunnelCode?: string;
-  riskIdentification?: string;
+  TunnelCode?: string;
+  RiskIdentification?: string;
 }
 
-interface FeemItem {
-  psn: string;
-  uid: string;
-  sid?: string;
-  parentLine: string[];
+interface FeemSummaryItem extends FeemItemInfo {
+  attr: {
+    SID: string;
+    PSN: string;
+  };
+}
+
+interface FeemUnit extends FeemItemInfo {
+  attr: {
+    UID: string;
+    PSN: string;
+    SID: string;
+  };
+  Units?: FeemUnit[];
+  Items?: FeemItem[];
+}
+
+interface FeemItem extends FeemItemInfo {
+  attr: {
+    UID: string;
+    PSN: string;
+    SID: string;
+  };
 }
 
 interface FeemActor {
-  code?: string;
-  name?: string;
-  name2?: string;
-  addressCode?: string;
-  address?: string;
-  address2?: string;
-  zipCode?: string;
-  city?: string;
-  country?: string;
-  state?: string;
+  Code?: string;
+  Name?: string;
+  Name2?: string;
+  AddressCode?: string;
+  Address?: string;
+  Address2?: string;
+  ZipCode?: string;
+  City?: string;
+  Country?: string;
+  State?: string;
 }
 
-export type {
-  FeemShipment,
-  FeemFileAttributes,
-  FeemSummaryItem,
-  FeemItem,
-  FeemActor,
-};
+export type {FeemFile, FeemShipment, FeemSummaryItem, FeemItem, FeemActor};
