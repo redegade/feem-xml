@@ -1,5 +1,25 @@
-src/
-tests/
+.git/
+
+# for npm
 node_modules/
+
+# codes
+tests/
+*.spec.ts
+src/
 *.ts
+
+# misc
+.gitignore
+.editorconfig
+.eslintrc.json
+.eslintignore
+.prettierrc.js
+.tsconfig.json
+.DS_Store
+
+package-lock.json
+npm-debug.log
+
+# Include the built files
 !dist/
