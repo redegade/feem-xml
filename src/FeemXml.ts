@@ -1,4 +1,4 @@
-import {createHash} from 'crypto';
+import * as md5 from 'md5';
 import {FeemJsonToXmlParser, FeemXmlToJsonParser} from './parser';
 import {
   FeemItemFlat,
@@ -153,7 +153,7 @@ class FeemXml {
   }
 
   _generateHash(xmlContent: string): string {
-    return createHash('md5').update(xmlContent).digest('hex');
+    return md5(xmlContent);
   }
 }
 
