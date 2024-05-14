@@ -1,4 +1,5 @@
-import readFeemXml from './readFeemXml';
+import {createHash} from 'crypto';
+import {FeemJsonToXmlParser, FeemXmlToJsonParser} from './parser';
 import {
   FeemItemFlat,
   FeemShipment,
@@ -11,18 +12,6 @@ class FeemXml {
 
   constructor(shipment?: FeemShipment) {
     this.shipment = shipment || ({} as FeemShipment);
-  }
-
-  public buildFromXml(xmlContent: string) {
-    try {
-      this.shipment = readFeemXml(xmlContent);
-    } catch (ex) {
-      throw new Error('Failed to parse XML file.' + ex);
-    }
-  }
-
-  public buildFromJson(jsonContent: FeemShipment) {
-    this.shipment = jsonContent;
   }
 
   public buildSummaryItemsMap(): FeemSummaryItemsMap {
@@ -128,6 +117,43 @@ class FeemXml {
     }
 
     return itemsFlat;
+  }
+
+  public toXml(): string {
+    // Generate the XML content
+    const xml = FeemJsonToXmlParser.build({
+      Shipment: this.shipment,
+    });
+
+    // Generate the hash on the XML content with empty hash value
+    const hash = this._generateHash(xml);
+
+    // Update the hash value in the shipment
+    this.shipment.attr.Hash = hash;
+
+    // Generate the XML content with the hash value
+    const xmlWithHash = FeemJsonToXmlParser.build({
+      Shipment: this.shipment,
+    });
+
+    return xmlWithHash;
+  }
+
+  public fromXml(xmlContent: string): void {
+    let feemFile = null;
+    try {
+      feemFile = FeemXmlToJsonParser.parse(xmlContent);
+      if (!feemFile.Shipment) {
+        throw new Error('Invalid XML file: missing root Shipment element.');
+      }
+    } catch (ex) {
+      throw new Error('Failed to parse XML file.' + ex);
+    }
+    this.shipment = feemFile.Shipment;
+  }
+
+  _generateHash(xmlContent: string): string {
+    return createHash('md5').update(xmlContent).digest('hex');
   }
 }
 

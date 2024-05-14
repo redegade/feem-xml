@@ -8,19 +8,21 @@ interface FeemShipment {
     FileType?: string;
     FileVersion?: string;
     Hash?: string;
+    ['xmlns:xsi']?: string;
+    ['xsi:noNamespaceSchemaLocation']?: string;
   };
   MessageId?: string;
   MessageTime?: string;
   MessageType?: string;
   DeliveryNoteNumber?: string;
   ExpectedDeliveryDate?: string;
-  Receiver?: FeemActor;
-  Shipper?: FeemActor | FeemActor[];
-  Sender?: FeemActor;
   DeliveryComment?: string;
   ShipmentNumber?: string;
   ShipmentDate?: string;
   PurchaseOrderNumber?: string;
+  Receiver?: FeemActor;
+  Shipper?: FeemActor | {Shipper: FeemActor[]};
+  Sender?: FeemActor;
   SummaryItems?: {
     SummaryItem?: FeemSummaryItem[] | FeemSummaryItem;
   };
@@ -70,6 +72,20 @@ interface FeemSummaryItemsMap {
   [key: string]: FeemSummaryItem;
 }
 
+interface FeemUnitTreeMap {
+  [key: string]: FeemUnitTree;
+}
+
+interface FeemUnitTree extends FeemItemInfo {
+  attr: {
+    UID: string;
+    PSN: string;
+    SID: string;
+  };
+  Units?: FeemUnitTreeMap;
+  Items?: FeemUnitTreeMap;
+}
+
 interface FeemUnit extends FeemItemInfo {
   attr: {
     UID: string;
@@ -109,7 +125,8 @@ interface FeemItemFlat {
   uid: string;
   psn: string;
   parentLine?: string[];
-  sid: string;
+  parentPackageLevel?: string[];
+  sid?: string;
 }
 
 export type {
@@ -121,4 +138,7 @@ export type {
   FeemItem,
   FeemUnit,
   FeemItemFlat,
+  FeemItemInfo,
+  FeemUnitTree,
+  FeemUnitTreeMap,
 };

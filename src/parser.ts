@@ -1,4 +1,9 @@
-import {X2jOptions, XMLParser} from 'fast-xml-parser';
+import {
+  X2jOptions,
+  XMLBuilder,
+  XMLParser,
+  XmlBuilderOptions,
+} from 'fast-xml-parser';
 
 const options: X2jOptions = {
   attributeNamePrefix: '',
@@ -18,6 +23,22 @@ const options: X2jOptions = {
   alwaysCreateTextNode: false,
 };
 
-const FeemXmlParser = new XMLParser(options);
+const FeemXmlToJsonParser = new XMLParser(options);
 
-export default FeemXmlParser;
+const builderOptions: XmlBuilderOptions = {
+  attributeNamePrefix: '',
+  attributesGroupName: 'attr',
+  textNodeName: '#text',
+  ignoreAttributes: false,
+  cdataPropName: '__cdata',
+  stopNodes: ['parse-me-as-string'],
+  preserveOrder: false,
+  commentPropName: '',
+  unpairedTags: [],
+  format: true, // formats the XML output instead of printing in single line
+  suppressEmptyNode: true, // auto-closes the <Item /> tag for better readability
+};
+
+const FeemJsonToXmlParser = new XMLBuilder(builderOptions);
+
+export {FeemXmlToJsonParser, FeemJsonToXmlParser};
