@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "npm run test:jest && npm run lint",
+    "build": "npm run clean && npm run compile",
     "test:jest": "jest",
     "lint": "gts lint",
     "clean": "gts clean",
