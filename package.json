@@ -18,7 +18,7 @@
   "author": "Red Kurti <contact@kurti.red> (https://kurti.red)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/redegade/feem-xml.git"
+    "url": "git+https://github.com/redegade/feem-xml.git"
   },
   "keywords": [
     "feem",
