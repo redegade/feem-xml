@@ -7,7 +7,6 @@ node_modules/
 tests/
 *.spec.ts
 src/
-*.ts
 
 # misc
 .gitignore
