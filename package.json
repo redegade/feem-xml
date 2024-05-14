@@ -2,8 +2,8 @@
   "name": "@redegade/feem-xml",
   "version": "0.0.3",
   "description": "Validate, parse, and build XML files that follow the FEEM Standard.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "test": "npm run test:jest && npm run lint",
     "build": "npm run clean && npm run compile",
