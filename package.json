@@ -1,6 +1,6 @@
 {
   "name": "@redegade/feem-xml",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Validate, parse, and build XML files that follow the FEEM Standard.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
