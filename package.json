@@ -1,7 +1,7 @@
 {
-  "name": "feem-xml",
+  "name": "@redegade/feem-xml",
   "version": "0.0.1",
-  "description": "Validate, parse, and build XML files that follow the FEEM European Explosives Code Structure",
+  "description": "Validate, parse, and build XML files that follow the FEEM Standard.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -15,8 +15,21 @@
     "pretest": "npm run compile",
     "posttest": "npm run lint"
   },
-  "author": "Red Kurti",
-  "license": "ISC",
+  "author": "Red Kurti <contact@kurti.red> (https://kurti.red)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redegade/feem-xml.git"
+  },
+  "keywords": [
+    "feem",
+    "xml",
+    "parser",
+    "validator",
+    "track",
+    "trace",
+    "edi"
+  ],
+  "license": "MIT",
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@types/jest": "^29.5.12",
